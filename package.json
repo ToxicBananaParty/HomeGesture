@@ -1,0 +1,19 @@
+{
+  "name": "homegesture",
+  "version": "1.0.0",
+  "description": "Control Home Assistant via NVIDIA Jetson",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToxicBananaParty/HomeGesture.git"
+  },
+  "author": "Ryan Dwyer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ToxicBananaParty/HomeGesture/issues"
+  },
+  "homepage": "https://github.com/ToxicBananaParty/HomeGesture#readme"
+}
