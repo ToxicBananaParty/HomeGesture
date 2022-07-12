@@ -42,3 +42,30 @@ except:
 	sys.exit(0)
 
 print(sys.argv)
+
+net = jetson.inference.poseNet(opt.network, sys.argv, opt.threshold)
+
+inputStream = jetson.utils.videoSource(opt.input_URI, argv=sys.argv)
+outputStream = jetson.utils.videoOutput(opt.output_URI, argv=sys.argv)
+
+while True:
+    img = inputStream.Capture()
+
+    poses = net.Process(img, overlay=opt.overlay)
+    skeletons = []
+
+    for i in range(len(poses)):
+        skeleton = {}
+        skeleton['id'] = i
+        skeleton['pose'] = poses[i]
+        skeletons.append(skeleton)
+
+    outputStream.Render(img)
+    
+    if(len(skeletons) < 2):
+        print(skeletons)
+    else:
+        print(skeletons([0]))
+
+    if not inputStream.IsStreaming() or not outputStream.IsStreaming():
+        break
