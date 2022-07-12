@@ -4,7 +4,8 @@
   "description": "Control Home Assistant via NVIDIA Jetson",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx tsc && node ./build/app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/ToxicBananaParty/HomeGesture/issues"
   },
-  "homepage": "https://github.com/ToxicBananaParty/HomeGesture#readme"
+  "homepage": "https://github.com/ToxicBananaParty/HomeGesture#readme",
+  "dependencies": {
+    "@types/amqplib": "^0.8.2",
+    "amqplib": "^0.10.0"
+  }
 }
