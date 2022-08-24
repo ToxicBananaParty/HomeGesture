@@ -1,6 +1,6 @@
 import amqp from 'amqplib/callback_api';
 
-amqp.connect('amqp://172.16.10.187', (err0, connection) => {
+amqp.connect('amqp://ryan:XRStudios20@172.16.10.187', (err0, connection) => {
     if(err0) {
         throw err0;
     }
@@ -16,7 +16,7 @@ amqp.connect('amqp://172.16.10.187', (err0, connection) => {
         });
 
         channel.consume(queue, (msg) => {
-            console.log("Received message: ", msg?.content.toString());
+            console.log("Received message: ", JSON.parse(msg!.content.toString()!));
         }, {
             noAck: true
         });
